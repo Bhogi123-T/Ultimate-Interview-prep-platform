@@ -1,0 +1,22 @@
+# Environment variables (Critical to ignore)
+.env
+
+# Database files
+session_history.db
+*.sqlite3
+*.db
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# OS generated files
+.DS_Store
+Thumbs.db

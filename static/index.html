@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Coach PRO & DSA Tracker</title>
+    <!-- Use standard modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">🚀</div>
+                <span>Coach<span class="highlight">Pro</span></span>
+            </div>
+            <nav class="nav-links">
+                <button class="nav-btn active" data-view="practice-view">
+                    <i>💻</i> Coding Practice
+                </button>
+                <button class="nav-btn" data-view="dashboard-view">
+                    <i>📊</i> Progress Dashboard
+                </button>
+                <button class="nav-btn" data-view="code-analyzer-view">
+                    <i>🧠</i> Code Analyzer & Explainer
+                </button>
+                <button class="nav-btn" data-view="interview-view">
+                    <i>⏱️</i> Simulator & Feedback
+                </button>
+                <button class="nav-btn" data-view="resume-view">
+                    <i>📄</i> Resume Analyzer
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="main-content">
+            
+            <!-- VIEW: Practice & Generate -->
+            <section id="practice-view" class="view-panel active">
+                <header class="view-header">
+                    <h2>Coding Practice System</h2>
+                    <p>Generate targeted questions, practice code, and get AI reasoning for wrong answers.</p>
+                </header>
+                
+                <div class="control-panel panel-card glass-panel">
+                    <div class="inputs-grid">
+                        <div class="form-group">
+                            <label for="topic">Technical Topic</label>
+                            <select id="topic">
+                                <option value="Data Structures and Algorithms">Data Structures & Arrays</option>
+                                <option value="String Manipulation">String Manipulation</option>
+                                <option value="Linked Lists">Linked Lists</option>
+                                <option value="Stacks & Queues">Stacks & Queues</option>
+                                <option value="Trees & Graphs">Trees & Graphs</option>
+                                <option value="Dynamic Programming">Dynamic Programming</option>
+                                <option value="Object Oriented Programming">Object Oriented Programming</option>
+                                <option value="System Design">System Design</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="difficulty">Difficulty</label>
+                            <select id="difficulty">
+                                <option value="All">Mixed (All Levels)</option>
+                                <option value="Easy">Easy</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard">Hard</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="language">Code Language (Sandbox=Python)</label>
+                            <select id="language">
+                                <option value="Python">Python</option>
+                                <option value="Java">Java</option>
+                                <option value="C++">C++</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="generate-btn" class="primary-btn pulse-btn">
+                        <span>Generate & Practice</span>
+                    </button>
+                </div>
+                
+                <div id="results-container" class="results-grid">
+                    <!-- Wait for content -->
+                </div>
+            </section>
+
+            <!-- VIEW: Dashboard -->
+            <section id="dashboard-view" class="view-panel hidden">
+                <header class="view-header">
+                    <h2>Progress Dashboard</h2>
+                    <p>Track your stats, accuracy, and weak topics automatically.</p>
+                </header>
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h3>Problems Solved</h3>
+                        <div class="stat-value" id="stat-solved">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Overall Accuracy</h3>
+                        <div class="stat-value" id="stat-acc">0%</div>
+                    </div>
+                    <div class="stat-card span-2">
+                        <h3>Weak Topics (Smart Recommendations)</h3>
+                        <div class="stat-tags" id="stat-weak">
+                            <!-- Tags loaded here -->
+                        </div>
+                        <p class="recommendation-text">💡 System Suggests: "Focus on Sliding Window & Trees to improve overall accuracy."</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW: Code Analyzer & Explainer -->
+            <section id="code-analyzer-view" class="view-panel hidden">
+                <header class="view-header">
+                    <h2>Code Explanation Tool</h2>
+                    <p>Paste code to get a step-by-step logic dry-run from the AI Coach.</p>
+                </header>
+                <div class="editor-section">
+                    <textarea id="explain-code-input" class="code-editor" placeholder="Paste complex algorithm here..."></textarea>
+                    <button id="explain-btn" class="primary-btn mt-4">Explain Step-By-Step</button>
+                    <div id="explanation-output" class="console-output mt-4 markdown-body hidden"></div>
+                </div>
+            </section>
+
+            <!-- VIEW: Mock Simulator -->
+            <section id="interview-view" class="view-panel hidden">
+                <header class="view-header">
+                    <h2>Interview Simulator Mode 🔥</h2>
+                    <p>Timer based strict mode. No backtracking. High Pressure!</p>
+                </header>
+                <div class="sim-panel glass-panel">
+                    <div class="timer-box">
+                        <span id="interview-timer">45:00</span>
+                        <p class="pressure-text blink">Pressure Mode ACTIVE</p>
+                    </div>
+                    <button id="start-mock-btn" class="primary-btn mt-4">Start Mock Interview</button>
+                </div>
+            </section>
+
+            <!-- VIEW: Resume Analyzer -->
+            <section id="resume-view" class="view-panel hidden">
+                <header class="view-header">
+                    <h2>Resume & Skill Analyzer</h2>
+                    <p>System detects missing skills and suggests improvements for FAANG roles.</p>
+                </header>
+                <div class="editor-section">
+                    <textarea id="resume-input" class="code-editor" style="min-height:150px;" placeholder="Paste your resume text or key skills here (e.g., Python, React, Flask)..."></textarea>
+                    <button id="analyze-resume-btn" class="primary-btn mt-4">Analyze Skills</button>
+                    <div id="resume-feedback-output" class="console-output mt-4 markdown-body hidden"></div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Interactive Problem Modal (Coding Practice System Core) -->
+    <div id="practice-modal" class="modal hidden">
+        <div class="modal-content glass-modal">
+            <button class="close-modal">&times;</button>
+            <div class="modal-layout">
+                <!-- Left: Question -->
+                <div class="modal-left markdown-body">
+                    <h2 id="modal-q-title">Question</h2>
+                    <p id="modal-q-desc"></p>
+                    
+                    <button id="show-hint-btn" class="secondary-btn small-btn mt-4">💡 Show Hint</button>
+                    <div id="modal-q-hint" class="hint-box hidden mt-4"></div>
+                    
+                    <button id="show-solution-btn" class="secondary-btn small-btn mt-4">📖 View Solution</button>
+                    <div id="modal-q-solution" class="solution-box hidden mt-4"></div>
+                </div>
+                
+                <!-- Right: Sandbox -->
+                <div class="modal-right">
+                    <div class="editor-header">
+                        <span>Code Sandbox (Python)</span>
+                    </div>
+                    <textarea id="sandbox-editor" class="code-editor">def solve():
+    # Write logic here
+    pass
+
+# Run test cases
+print("Running solve()...")
+                    </textarea>
+                    <div class="action-row">
+                        <button id="sandbox-run-btn" class="primary-btn">▶️ Run Code</button>
+                        <button id="sandbox-analyze-btn" class="secondary-btn analyzer-btn">🔍 Why did it fail?</button>
+                    </div>
+                    
+                    <div class="console-box">
+                        <div class="console-header">Output Console</div>
+                        <pre id="sandbox-output" class="console-output">Ready...</pre>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

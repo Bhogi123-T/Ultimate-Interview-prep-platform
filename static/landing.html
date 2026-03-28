@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Coach - Landing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.4);
+            --text-primary: #f8fafc;
+            --text-muted: #cbd5e1;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body {
+            background: radial-gradient(circle at top, #1e1b4b, #0f172a 80%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        h1 { font-size: 4rem; margin-bottom: 1rem; }
+        .highlight { color: var(--accent); }
+        p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 3rem; line-height: 1.6; }
+        .cta-btn {
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 3rem;
+            border-radius: 999px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px var(--accent-glow);
+        }
+        .features {
+            display: gap;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 5rem;
+            max-width: 900px;
+        }
+        .feature-card {
+            background: rgba(30, 41, 59, 0.4);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: left;
+        }
+        .feature-card h3 { color: var(--accent); margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <h1>Ace Your <span class="highlight">FAANG</span> Interviews</h1>
+    <p>Your ultimate all-in-one AI Interview Coach Platform. Practice coding, analyze your weaknesses, simulate high-pressure pressure mock interviews, and get your resume evaluated instantly!</p>
+    
+    <a href="/app" class="cta-btn">Start Practicing Now</a>
+
+</body>
+</html>
