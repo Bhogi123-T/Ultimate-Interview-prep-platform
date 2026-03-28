@@ -14,6 +14,13 @@ A comprehensive, AI-powered tech interview preparation platform designed to simu
 * **Frontend:** Vanilla HTML5, CSS3 (Glassmorphic UI), JavaScript
 * **AI Engine:** Native Google Generative AI SDK (Gemini 2.5 Flash)
 
+* ## 📸 Platform Screenshots
+![Landing Page](assets/landing.png)
+![Dashboard](assets/dashboard.png)
+![Questions](assets/questions.png)
+![Explanation](assets/explanation.png)
+
+
 ## Local Setup 💻
 1. Clone the repository.
    ```bash
@@ -39,3 +46,4 @@ Because the `.env` file is safely ignored via our `.gitignore`, do **not** uploa
 
 ---
 *Developed & Designed by Bhogi123-T*
+
